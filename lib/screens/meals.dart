@@ -7,17 +7,21 @@ class MealsScreen extends StatelessWidget {
   const MealsScreen({
     this.titleScreen,
     required this.meals,
-    required this.onToggleFavorite,
+    // required this.onToggleFavorite,
     super.key,
   });
 
   final String? titleScreen;
   final List<Meal> meals;
-  final void Function(Meal meal) onToggleFavorite;
+  // final void Function(Meal meal) onToggleFavorite;
 
   void _selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-      return MealDetailsScreen(meal: meal, onToggleFavorite: onToggleFavorite);
+      return MealDetailsScreen(
+        meal: meal,
+        // this can also be remove, I think the MealDetailsScreen is the widget that needs the toggle method from the state notifier
+        // onToggleFavorite: onToggleFavorite,
+      );
     }));
   }
 
